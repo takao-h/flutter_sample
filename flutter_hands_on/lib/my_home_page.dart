@@ -10,8 +10,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
+  final List<String> _todoItems = [
+    "hoge"
+    , "huga"
+    , "foo"
+  ];
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -19,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      // _counter++;
     });
   }
 
@@ -37,31 +40,12 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      // body: ListView(
-      //   children: const [
-      //     Card(
-      //       child: ListTile(
-      //         title: Text("リストビューサンプル1"),
-      //       ),
-      //     ),
-      //      Card(
-      //       child: ListTile(
-      //         title: Text("リストビューサンプル2"),
-      //       ),
-      //     ),
-      //      Card(
-      //       child: ListTile(
-      //         title: Text("リストビューサンプル3"),
-      //       ),
-      //     )
-      //   ]
-      // )
       body: ListView.builder(
-          itemCount: 3,
+          itemCount: _todoItems.length,
           itemBuilder: (BuildContext context, int index) {
-            return const Card(
+            return Card(
               child: ListTile(
-                title: Text("こっちの書き方のほうがスマート"),
+                title: Text(_todoItems[index]),
               ),
             );
           }),
