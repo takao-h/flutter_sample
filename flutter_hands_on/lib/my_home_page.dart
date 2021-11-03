@@ -37,26 +37,34 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: ListView(
-        children: const [
-          Card(
-            child: ListTile(
-              title: Text("リストビューサンプル1"),
-            ),
-          ),
-           Card(
-            child: ListTile(
-              title: Text("リストビューサンプル2"),
-            ),
-          ),
-           Card(
-            child: ListTile(
-              title: Text("リストビューサンプル3"),
-            ),
-          )
-        ]
-      )
-      ,
+      // body: ListView(
+      //   children: const [
+      //     Card(
+      //       child: ListTile(
+      //         title: Text("リストビューサンプル1"),
+      //       ),
+      //     ),
+      //      Card(
+      //       child: ListTile(
+      //         title: Text("リストビューサンプル2"),
+      //       ),
+      //     ),
+      //      Card(
+      //       child: ListTile(
+      //         title: Text("リストビューサンプル3"),
+      //       ),
+      //     )
+      //   ]
+      // )
+      body: ListView.builder(
+          itemCount: 3,
+          itemBuilder: (BuildContext context, int index) {
+            return const Card(
+              child: ListTile(
+                title: Text("こっちの書き方のほうがスマート"),
+              ),
+            );
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
