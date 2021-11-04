@@ -65,7 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           title: Text(_todoItems[index]),
                           actions: [
                             IconButton(
-                              onPressed: () => Navigator.pop(context),
+                              onPressed: () {
+                                _deleteTodo(index);
+                                Navigator.pop(context);
+                              },
                               icon: Icon(Icons.delete),
                               color: Colors.red,
                             )
