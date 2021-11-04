@@ -16,6 +16,12 @@ class _MyHomePageState extends State<MyHomePage> {
     , "foo"
   ];
 
+  void _deleteTodo(int index) {
+    setState(() {
+      _todoItems.removeAt(index);
+    });
+  }
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -57,6 +63,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         context: context,
                         builder: (BuildContext context) => AlertDialog(
                           title: Text(_todoItems[index]),
+                          actions: [
+                            IconButton(
+                              onPressed: () => Navigator.pop(context),
+                              icon: Icon(Icons.delete),
+                              color: Colors.red,
+                            )
+                          ],
                         )),
                   ),
                 ),
